@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="Board" prefHeight="370.0" prefWidth="491.0" styleClass="null" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+    <left>
+        <VBox prefHeight="290.0" prefWidth="146.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="34.0" prefWidth="146.0">
+                    <children>
+                        <TextField fx:id="SizeText" prefHeight="25.0" prefWidth="70.0" promptText="board size">
+                     <HBox.margin>
+                        <Insets left="5.0" fx:id="x3" />
+                     </HBox.margin></TextField>
+                        <Button fx:id="SizeEnter" mnemonicParsing="false" onAction="#DrawGrid" text="Enter">
+                     <HBox.margin>
+                        <Insets left="5.0" fx:id="x4" />
+                     </HBox.margin></Button>
+                    </children>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+                </HBox>
+                <HBox prefHeight="34.0" prefWidth="146.0">
+                    <children>
+                        <TextField fx:id="numPlayers" prefHeight="25.0" prefWidth="139.0" promptText="num of players">
+                            <HBox.margin>
+                                <Insets left="5.0" fx:id="x1" />
+                            </HBox.margin>
+                        </TextField>
+                    </children>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+                </HBox>
+                <HBox prefHeight="34.0" prefWidth="146.0">
+                    <children>
+                        <RadioButton mnemonicParsing="false" selected="true" text="Human">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Select" />
+                     </toggleGroup>
+                     <HBox.margin>
+                        <Insets left="5.0" fx:id="x2" />
+                     </HBox.margin></RadioButton>
+                        <RadioButton mnemonicParsing="false" text="AI" toggleGroup="$Select">
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </RadioButton>
+                    </children>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+                </HBox>
+            <HBox prefHeight="39.0" prefWidth="146.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="45.0" promptText="X" HBox.hgrow="ALWAYS" fx:id="xCoordinate" />
+                  <TextField fx:id="yCoordinate" prefHeight="25.0" prefWidth="45.0" promptText="Y" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="34.0" prefWidth="146.0">
+               <children>
+                  <Button fx:id="PlayBtn" mnemonicParsing="false" onAction="#play" text="Play">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin></Button>
+                        <Button fx:id="ResetBtn" mnemonicParsing="false" onAction="#clearGrid" text="Reset" />
+               </children>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </HBox>
+            <TextField fx:id="status" prefHeight="215.0" prefWidth="146.0" />
+            <TextArea prefHeight="200.0" prefWidth="200.0" text="player 1 = red          player 2 = yellow        player 3 = green            player 4 = purple             player 5 = orange" wrapText="true" />
+            </children>
+        </VBox>
+    </left>
+    <top>
+        <MenuBar fx:id="MenuBar" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Rules" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <Pane fx:id="board" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: Blue;" BorderPane.alignment="CENTER">
+            <children>
+                <Canvas fx:id="canvas" height="800.0" layoutX="1.0" width="1000.0" />
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
